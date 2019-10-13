@@ -88,5 +88,45 @@ var foo = function() {
 ```
 
 ## Global variables
+Everything in js is an object, hence global variables (in we) are part of `window` object. Access them using `window.varname`.
+
+## Constants
+A constant does not change, however for a few things in js, it acts as a reference too. See below:
+```
+const MY_OBJ = {'key' : 'value'};
+MY_OBJ.key = 'othervalue';
+```
+The above is valid since `MY_OBJ` is acting as a reference.
+
+## Data structure and types
+8 data types - 7 primitive and 1 object type.
+
+7 primitives:
+1. `Boolean`: true or false
+2. `null`: not equivalent to Null or NULL
+3. `undefined`
+4. `Number`: Integer or Float
+5. `BigInt`: Arbitrary precision Int
+6. `String`
+7. `Symbol`: new in ECMAscript 2015.
+
+JavaScript is dynamically typed, hence you don't need to specify.
+`str = "This is me"` is a string
+`str = "Number: " + 42` is a string
+`num = 42 - 7` is a number
+
+## Converting string to number
+Use `parseInt()` and `parseFloat()`. Both need a string as an argument.
+
+## Literals
+1. `Array`: `var coffee = ['cof1', 'cof2'];`
+2. `Boolean`
+3. `Numeric`: You can use `0x`, `0o` or `0b` before numbers also to denote base
+4. `Floating point`
+5. `Object`: Anything of the form `x = {}` with one or more than one pairing inside `{}`
+    Property names that are not valid identifiers also cannot be accessed as a dot (.) property, but can be accessed and set with the array-like notation("[]").
+6. `RegExp`: Enclosed between slashes. `/ab+c/`
+7. `String`: Enclosed between double quotes or single quotes.
+
 
 
