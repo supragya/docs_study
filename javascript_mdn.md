@@ -129,4 +129,110 @@ Use `parseInt()` and `parseFloat()`. Both need a string as an argument.
 7. `String`: Enclosed between double quotes or single quotes.
 
 
+## Quirks
+### Arrays and commas
+
+```
+var myList = ['home', , 'school', ];
+```
+Commas in middle mean they are `undefined`.
+However last comma at the end may be ignored
+
+
+### Objects
+Inside the objects, you can look as follows: `obj.value`. However sometimes this may not work. In those cases, use `obj['value']`.
+
+### Multiline strings
+Use backquotes to have multiline strings.
+Such as:
+```
+var name = `This is one line
+            This is another line`
+```
+
+### String interpolation
+Can be done using `${varname}` addition. Such as:
+```
+var str = "Hello ${name}, how are you today?"
+```
+
+## Control statements:
+1. if else
+2. switch
+3. try catch throw finally
+4. for loop 
+5. do while
+6. while
+7. break, continue
+8. for in `for (let i in obj)`
+9. for of
+
+## Defining functions
+There are two ways to define function: function declarations and function expresssion
+### Function declaration
+General form:
+```
+function square(number) {
+    return number * number;
+}
+```
+Primitive params are passed to function **by value**. The value does not change if the function tries to change it.
+However, if you pass an object or something like an array, it is passed **by reference** and function has the ability to change it.
+
+### Function expressions
+Anonymous functions without a name
+```
+var square = function(number) {
+    return number * number;
+}
+```
+Function expressions are convenient way to pass the function as an argument.
+
+In JS, a function can be defined based on a condition as well. Following function defines only if `num==0`:
+```
+var myFunc;
+var num = 2;
+if (num == 0) {
+    myFunc = function () {
+        console.log("Hello there");
+    }
+}
+```
+
+## Other things about function
+`var` have a function scope and are hoisted.
+```
+var foo = function bar() {
+    // things
+}
+```
+within the function body, all three below can be used to reference itself:
+1. `foo()`
+2. `bar()`
+3. `arguments.callee()`
+
+## Nested functions and closures
+You can nest function withing the function.
+The inner function is private to containing function.
+It also forms a closure.
+    The inner function can use the vars and args of outer function
+    The outer function cannot use the vars and args of inner function
+Closure example:
+```
+function outer(x) {
+    function inner(y) {
+        return x+y;
+    }
+    return inner;
+}
+fn_inside = outer(3); //Gives access to inner with 3 are a parameter already
+console.log(fn_inside(5)); // 8
+console.log(outer(3)(5)); // 8
+```
+A new closure is created everytime a call to `outside` is done. The memory can be freed only when the access to `inner` is not longer available.
+
+## Scope and name conflicts
+When multiscope access to variable is available, the innermost scope takes precedence.
+
+
 
