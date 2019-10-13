@@ -1,6 +1,8 @@
 # Javascript
 Link: [https://wiki.developer.mozilla.org/en-US/docs/Web/JavaScript/Guide](https://wiki.developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
 
+**Basic thought**: Everything in javascript is object, objects are passed, used as blueprints, replicated etc.
+
 ## First class functions
 When functions are treated like variables
 ```
@@ -64,5 +66,27 @@ console.log(x); //wrong
 ```
 
 **NOTE**: Let and const are hoisted but not initalized, temporal deadzones.
+
+Because of hoisting, all var statements in a function should be placed as near to the top of the function as possible. This best practice increases the clarity of the code.
+
+## Function hoisting
+For functions, only declarations get hoisted to the top.
+
+```
+foo()
+function foo(){
+    console.log("Foo");
+}
+```
+
+This will however not work:
+```
+foo()
+var foo = function() {
+    console.log("Foo");
+}
+```
+
+## Global variables
 
 
