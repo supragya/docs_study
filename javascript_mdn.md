@@ -27,7 +27,7 @@ Hence double paranthesis like `say()()` invokes returned function/
 You dont have to be concerned whether methods are public, private or protected or implement interfaces.
 
 ## Javascript declarations
-1. var: Declares a variable, optionally initto value
+1. var: Declares a variable, optionally init to value
 2. let: Block-scoped, optionally init to value
 3. block-scoped, read only
 
