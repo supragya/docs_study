@@ -106,4 +106,42 @@ Zuul based gateway has the following architecture:
 3. You can test new services
 4. You can filter bad requests
 
+### Hysterix
+Decorator on the microservices and makes sure latency is right.
+1. Gracefully reject the call if greater than timeout
+2. Reject requests when threadpool is full
+3. Disconnect the service if too many errors
+4. Fall back to default response
+5. metrics
 
+### Microservices based architecture
+Netflix separates its processes and workload across microservices. Microservices are small systems which communicate with each other to provide full services.
+
+Microservices can be spawned and let go and can be put on distributed systems. But how to manage so many calls and complexity?
+
+1. In case you have a critical endpoint or critical microservice, separate it out as a separate entity with as few dependencies as possible.
+2. **Have stateless endpoints**: State should not be preserved in a loosely coupled system.
+
+### EV Cache
+For every zone, you will cache on multiple ec2 instances.
+1. Whenever write happens, write it to every available cluster you know in the zone.
+2. Whenever read happens, read from the cluster in the zone you are trying to access. In case you miss, you can go the long route.
+
+**Benefits**:
+1. Throughput
+2. Latency
+3. Cost
+
+### Databases
+Netflix uses both - MySQL and Cassandra
+1. Write to MySQL happens with a hot standby for master DB always ready.
+2. There are read replicas for the DBs across zones.
+
+### OpenConnect appliances
+Physical devices to cache netflix videos, and is provided free of charge to the ISPs.
+ISPs may want this to reduce outbound traffic.
+Proactive caching based on viewing pattern.
+
+OC cluster is based on consistent hash rings.
+
+## Rate limiting algorithm
