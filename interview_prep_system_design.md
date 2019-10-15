@@ -57,4 +57,17 @@ What happens if the key `990` fails or you have to add `1001` hash in the table?
 Well, in that case, since the last number will be `990`, you revert back to the first entry which is `10` and add your value there.
 If `990` fails, only the bucket values that were saved in `990` are no longer accessible. Any lookup for anything else does not die. Also, if any addition needs to happen which earlier would have gone to bucket with key `990` would now go to `10`, hence a remap.
 
+## Netflix system architecture
+Netflix operates in two clouds:
+1. Amazon AWS: Anything relating to bookkeeping
+2. OpenConnect: Anything related to content delivery
+
+Three important components:
+1. OpenConnect 
+2. Backend
+3. Client
+
+Openconnect is Netflix's own CDN (Content delivery network) - servers placed in different locations all over the world.
+
+System
 
