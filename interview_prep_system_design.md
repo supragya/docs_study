@@ -58,7 +58,7 @@ Well, in that case, since the last number will be `990`, you revert back to the 
 If `990` fails, only the bucket values that were saved in `990` are no longer accessible. Any lookup for anything else does not die. Also, if any addition needs to happen which earlier would have gone to bucket with key `990` would now go to `10`, hence a remap.
 
 ## Netflix system architecture
-![Netflix architecture](images/netflix.jpg)
+![Netflix architecture](images/netflix_architecture.jpg)
 
 Netflix operates in two clouds:
 1. Amazon AWS: Anything relating to bookkeeping
