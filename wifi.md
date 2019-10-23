@@ -104,4 +104,10 @@ MIMO - Multiple input / Multiple output
 Beam forming
 Not backwards compatibility 
 
-
+### 802.11ax (WiFi 6)
+2.4 - 14 Gbps (multiple stream)
+OFDM (Orthogonal Frequency-Division Multiplexing)
+BSS coloring
+2.4 and 5 Ghz
+Multi user MIMO (8 streams)
+TwT (Target Wakeup time)
